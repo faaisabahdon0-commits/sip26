@@ -19,14 +19,11 @@ void draw() {
 
        
 
-      // CHANGED: Map y instead of x to make it vertical 
-
       float normalizedY = map(y, 0, height - 1, 0, 1);  
 
        
 
-      // Define a custom palette (Example: Neon Pink to deep Violet) 
-
+   
       int red = int(map(normalizedY, 0, 1, 255, 40));    
 
       int green = int(map(normalizedY, 0, 1, 0, 10));    
@@ -43,6 +40,6 @@ void draw() {
 
   } 
 
-  updatePixels(); 
+updatePixels(); 
 
 } 

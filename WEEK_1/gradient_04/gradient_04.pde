@@ -1,54 +1,22 @@
+void setup() {
+  size(400, 300);
+  pixelDensity(1);
+}
 
-void setup() { 
+void draw() {
+  loadPixels();
 
-  size(400, 300); 
+  for (int x = 0; x < width; x++) {
+    float normalizedX = map(x, 0, width - 1, 0, 1);
+    float curve = pow(normalizedX, 1.8);
+    int red = int(map(curve, 0, 1, 255, 140));
+    int green = int(map(curve, 0, 1, 255, 30));
+    int blue = int(map(curve, 0, 1, 255, 30));
 
-  pixelDensity(1); 
+    for (int y = 0; y < height; y++) {
+      pixels[x + y * width] = color(red, green, blue);
+    }
+  }
 
-} 
-
-
-void draw() { 
-
-  loadPixels(); 
-
-   
-
-  float centerX = width / 2.0; 
-
-  float centerY = height / 2.0; 
-
-  float maxDist = dist(0, 0, centerX, centerY);  
-
- 
- 
-
-  for (int x = 0; x < width; x++) { 
-
-    for (int y = 0; y < height; y++) { 
-
-      float currentDist = dist(x, y, centerX, centerY); 
-
-      float normalizedDist = map(currentDist, 0, maxDist, 0, 1); 
-
-       
-
-    
-
-      int red = int(map(normalizedDist, 0, 1, 255, 50)); 
-
-      int green = int(map(normalizedDist, 0, 1, 210, 15)); 
-
-      int blue = int(map(normalizedDist, 0, 1, 40, 60)); 
-
-       
-
-      pixels[x + y * width] = color(red, green, blue); 
-
-    } 
-
-  } 
-
-  updatePixels(); 
-
-} 
+  updatePixels();
+}
