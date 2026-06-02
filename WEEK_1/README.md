@@ -1,4 +1,4 @@
-//Week 1: Pixels and Colour
+ Week 1: Pixels and Colour
 Directory contents
 Code sample for the gradient is in examples/gradient
 Week 1 Task
